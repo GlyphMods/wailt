@@ -2,12 +2,12 @@ plugins {
     id 'java-library'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.55'
+    id 'net.neoforged.gradle.userdev' version '7.0.88'
 
     // Adds the Kotlin Gradle plugin
-    id 'org.jetbrains.kotlin.jvm' version '1.9.21'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.23'
     // OPTIONAL Kotlin Serialization plugin
-    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.21'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.23'
 }
 
 version = mod_version
