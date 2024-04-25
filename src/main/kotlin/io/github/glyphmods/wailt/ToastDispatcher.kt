@@ -38,7 +38,7 @@ class ToastDispatcher(private val toastComponent: ToastComponent, metadataFetche
             val location = sound.sound.location
             val track = tracks[location.namespace]?.get(location.path.removePrefix("music/"))
             if (track != null) {
-                toastComponent.addToast(SongToast(track.title, track.artist))
+                toastComponent.addToast(SongToast(track.artist, track.title))
             } else {
                 toastComponent.addToast(
                     SongToast(
