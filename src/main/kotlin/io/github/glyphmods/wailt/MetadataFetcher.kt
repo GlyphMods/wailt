@@ -12,7 +12,7 @@ interface MetadataFile {
     val version: Int
 }
 
-class MetadataFetcher(gameDirectory: File, val baseUrl: URL) {
+class MetadataFetcher(gameDirectory: File, val baseUrl: URL, val forceEmbedded: Boolean) {
     val cacheDirectory = gameDirectory.resolve("wailt").also {
         if (!it.exists()) {
             check(it.mkdir()) { "Failed to create cache directory! $it" }
@@ -21,29 +21,39 @@ class MetadataFetcher(gameDirectory: File, val baseUrl: URL) {
     }
 
     @OptIn(ExperimentalSerializationApi::class)
-    inline fun <reified T : MetadataFile> fetchFile(fileName: String): T = runCatching {
-        URL(baseUrl, "tracks.json").openStream()
-    }.onSuccess {
-        WAILT.LOGGER.debug("Caching downloaded file $fileName")
-        try {
-            it.copyTo(cacheDirectory.resolve(fileName).outputStream())
-        } catch (e: Exception) {
-            WAILT.LOGGER.warn("Failed to cache downloaded file $fileName:", e)
+    inline fun <reified T : MetadataFile> fetchFile(fileName: String): T = if (forceEmbedded) {
+        WAILT.LOGGER.warn("Using embedded copy of $fileName, as requested")
+        runCatching {
+            Json.decodeFromStream<T>(this::class.java.getResourceAsStream("/$fileName")!!)
+        }.getOrElse {
+            throw RuntimeException("Could not load metadata file $fileName", it)
         }
-    }.map { Json.decodeFromStream<T>(it) }.getOrElse { downloadError ->
-        WAILT.LOGGER.warn("Failed to download or parse $fileName, loading cached file")
-        WAILT.LOGGER.debug("Download error:", downloadError)
-        cacheDirectory.resolve(fileName).runCatching {
-            Json.decodeFromStream<T>(inputStream())
-        }.getOrElse { readError ->
-            WAILT.LOGGER.warn("Unable to read $fileName from cache, using embedded copy")
-            WAILT.LOGGER.debug("Cache read error:", readError)
-            runCatching {
-                Json.decodeFromStream<T>(this::class.java.getResourceAsStream("/$fileName")!!)
-            }.getOrElse {
-                throw RuntimeException("Could not load metadata file $fileName", it).apply {
-                    addSuppressed(readError)
-                    addSuppressed(downloadError)
+    } else {
+        runCatching {
+            URL(baseUrl, "tracks.json").openStream().reader().readText()
+        }.onSuccess { data ->
+            WAILT.LOGGER.debug("Caching downloaded file $fileName")
+            try {
+                cacheDirectory.resolve(fileName).writeText(data)
+            } catch (e: Exception) {
+                WAILT.LOGGER.warn("Failed to cache downloaded file $fileName:", e)
+            }
+
+        }.map { Json.decodeFromString<T>(it) }.getOrElse { downloadError ->
+            WAILT.LOGGER.warn("Failed to download or parse $fileName, loading cached file")
+            WAILT.LOGGER.debug("Download error:", downloadError)
+            cacheDirectory.resolve(fileName).runCatching {
+                Json.decodeFromString<T>(readText())
+            }.getOrElse { readError ->
+                WAILT.LOGGER.warn("Unable to read $fileName from cache, using embedded copy")
+                WAILT.LOGGER.debug("Cache read error:", readError)
+                runCatching {
+                    Json.decodeFromStream<T>(this::class.java.getResourceAsStream("/$fileName")!!)
+                }.getOrElse {
+                    throw RuntimeException("Could not load metadata file $fileName", it).apply {
+                        addSuppressed(readError)
+                        addSuppressed(downloadError)
+                    }
                 }
             }
         }

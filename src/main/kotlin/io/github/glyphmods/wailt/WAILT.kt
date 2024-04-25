@@ -30,7 +30,12 @@ object WAILT {
         event.enqueueWork {
             val minecraft = Minecraft.getInstance()
             dispatcher = ToastDispatcher(
-                minecraft.toasts, MetadataFetcher(minecraft.gameDirectory, URL(Config.metadataUrl.get()))
+                minecraft.toasts,
+                MetadataFetcher(
+                    minecraft.gameDirectory,
+                    URL(Config.metadataUrl.get()),
+                    Config.forceEmbeddedMetadata.get()
+                )
             )
             FORGE_BUS.register(dispatcher)
         }

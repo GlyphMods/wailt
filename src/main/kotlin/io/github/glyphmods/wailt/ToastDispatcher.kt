@@ -26,6 +26,8 @@ class ToastDispatcher(private val toastComponent: ToastComponent, metadataFetche
                 id to Track(Component.literal(name), Component.literal(artist))
             }
         }.toMap()
+    }.also {
+        WAILT.LOGGER.info("Loaded information for ${it.values.sumOf { it.size }} songs in ${it.size} namespaces")
     }
     private val missingSongs = mutableSetOf<ResourceLocation>()
 
