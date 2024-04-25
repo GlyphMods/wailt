@@ -4,9 +4,10 @@ plugins {
     `maven-publish`
     id("net.neoforged.gradle.userdev") version "7.0.88"
 
-    kotlin("jvm") version "1.9.23"
+    val kotlinVersion = "1.9.23"
+    kotlin("jvm") version kotlinVersion
     // OPTIONAL Kotlin Serialization plugin
-    kotlin("plugin.serialization") version "1.9.23"
+    kotlin("plugin.serialization") version kotlinVersion
 }
 
 val mod_id: String by project
