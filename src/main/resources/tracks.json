@@ -1,0 +1,13 @@
+{
+    "version": 0,
+    "tracks": {
+        "minecraft": {
+            "C418": {
+                "menu/beginning_2": "Beginning 2",
+                "menu/floating_trees": "Floating Trees",
+                "menu/moog_city_2": "Moog City 2",
+                "menu/mutation": "Mutation"
+            }
+        }
+    }
+}

@@ -1,7 +1,6 @@
 package io.github.glyphmods.wailt
 
 import net.minecraft.client.Minecraft
-import net.minecraft.server.packs.resources.ReloadableResourceManager
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.ModLoadingContext
 import net.neoforged.fml.common.Mod
@@ -31,11 +30,8 @@ object WAILT {
         event.enqueueWork {
             val minecraft = Minecraft.getInstance()
             dispatcher = ToastDispatcher(
-                minecraft.toasts,
-                minecraft.languageManager,
-                MetadataFetcher(minecraft.gameDirectory, URL(Config.metadataUrl.get()))
+                minecraft.toasts, MetadataFetcher(minecraft.gameDirectory, URL(Config.metadataUrl.get()))
             )
-            (minecraft.resourceManager as ReloadableResourceManager).registerReloadListener(dispatcher)
             FORGE_BUS.register(dispatcher)
         }
     }

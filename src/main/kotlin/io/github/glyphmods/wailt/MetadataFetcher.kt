@@ -23,7 +23,7 @@ class MetadataFetcher(gameDirectory: File, val baseUrl: URL) {
 
     @OptIn(ExperimentalSerializationApi::class)
     inline fun <reified T : MetadataFile> fetchFile(fileName: String): T = runCatching {
-        URL(baseUrl, "artists.json").openStream()
+        URL(baseUrl, "tracks.json").openStream()
     }.onSuccess {
         WAILT.LOGGER.debug("Caching downloaded file $fileName")
         try {
@@ -32,13 +32,23 @@ class MetadataFetcher(gameDirectory: File, val baseUrl: URL) {
             WAILT.LOGGER.warn("Failed to cache downloaded file $fileName:", e)
         }
     }.map { Json.decodeFromStream<T>(it) }.getOrElse { downloadError ->
-        WAILT.LOGGER.warn("Failed to download or parse $fileName, loading cached file", downloadError)
+        WAILT.LOGGER.warn("Failed to download or parse $fileName, loading cached file")
+        WAILT.LOGGER.debug("Download error:", downloadError)
         cacheDirectory.resolve(fileName).runCatching {
             Json.decodeFromStream<T>(inputStream())
         }.getOrElse { readError ->
-            WAILT.LOGGER.warn("Unable to read $fileName from cache, using embedded copy", readError)
-            Json.decodeFromStream<T>(this::class.java.getResourceAsStream("/songs/$fileName")!!)
+            WAILT.LOGGER.warn("Unable to read $fileName from cache, using embedded copy")
+            WAILT.LOGGER.debug("Cache read error:", readError)
+            runCatching {
+                Json.decodeFromStream<T>(this::class.java.getResourceAsStream("/$fileName")!!)
+            }.getOrElse {
+                throw RuntimeException("Could not load metadata file $fileName", it).apply {
+                    addSuppressed(readError)
+                    addSuppressed(downloadError)
+                }
+            }
         }
+    }.also {
+        check(it.version == FORMAT_VERSION) { "File $fileName has an unsupported version ${it.version}! (expected $FORMAT_VERSION)" }
     }
-        .also { check(it.version == FORMAT_VERSION) { "File $fileName has an unsupported version ${it.version}! (expected $FORMAT_VERSION)" } }
 }
