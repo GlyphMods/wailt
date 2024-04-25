@@ -6,7 +6,58 @@
                 "menu/beginning_2": "Beginning 2",
                 "menu/floating_trees": "Floating Trees",
                 "menu/moog_city_2": "Moog City 2",
-                "menu/mutation": "Mutation"
+                "menu/mutation": "Mutation",
+                "game/clark": "Clark",
+                "game/danny": "Danny",
+                "game/dry_hands": "Dry Hands",
+                "game/haggstrom": "Haggstrom",
+                "game/key": "Key",
+                "game/minecraft": "Minecraft",
+                "game/oxygene": "Oxygène",
+                "game/subwoofer_lullaby": "Subwoofer Lullaby",
+                "game/sweden": "Sweden",
+                "game/wet_hands": "Wet Hands",
+                "game/creative/aria_math": "Aria Math",
+                "game/creative/biome_fest": "Biome Fest",
+                "game/creative/blind_spots": "Blind Spots",
+                "game/creative/dreiton": "Dreiton",
+                "game/creative/haunt_muskie": "Haunt Muskie",
+                "game/creative/taswell": "Taswell",
+                "game/end/alpha": "Alpha",
+                "game/end/boss": "Boss",
+                "game/end/the_end": "The End.",
+                "game/nether/ballad_of_the_cats": "Ballad of the Cats",
+                "game/nether/concrete_halls": "Concrete Halls",
+                "game/nether/dead_voxel": "Dead Voxel",
+                "game/nether/warmth": "Warmth",
+                "game/water/axolotl": "Axolotl",
+                "game/water/dragon_fish": "Dragon Fish",
+                "game/water/shuniji": "Shuniji"
+            },
+            "Lena Raine": {
+                "game/ancestry": "Ancestry",
+                "game/infinite_amethyst": "Infinite Amethyst",
+                "game/left_to_bloom": "Left to Bloom",
+                "game/one_more_day": "One More Day",
+                "game/stand_tall": "Stand Tall",
+                "game/wending": "Wending",
+                "game/nether/crimson_forest/chrysopoeia": "Chrysopoeia",
+                "game/nether/nether_wastes/rubedo": "Rubedo",
+                "game/nether/soulsand_valley/so_below": "So Below",
+                "game/swamp/aerie": "Aerie",
+                "game/swamp/firebugs": "Firebugs",
+                "game/swamp/labyrinthine": "Labyrinthine"
+            },
+            "Aaron Cherof": {
+                "game/a_familiar_room": "A Familiar Room",
+                "game/bromeliad": "Bromeliad",
+                "game/crescent_dunes": "Crescent Dunes",
+                "game/echo_in_the_wind": "Echo in the Wind"
+            },
+            "Kumi Tanioka": {
+                "game/an_ordinary_day": "An Ordinary Day",
+                "game/comforting_memories": "Comforting Memories",
+                "game/floating_dream": "Floating Dream"
             }
         }
     }
