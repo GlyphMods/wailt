@@ -77,7 +77,7 @@ dependencies {
     implementation("net.neoforged:neoforge:${property("neo_version") as String}")
 
     // Must use the "-neoforge" version on NeoForge. If on regular forge, omit the "-neoforge"
-    implementation("thedarkcolour:kotlinforforge-neoforge:4.10.0")
+    implementation("thedarkcolour:kotlinforforge-neoforge:${property("loader_version") as String}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -116,4 +116,8 @@ tasks.withType<JavaCompile>().configureEach {
 
 kotlin {
 
+}
+
+tasks.jar {
+    archiveClassifier.set("neoforge-${project.property("minecraft_version")}")
 }
