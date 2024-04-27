@@ -38,8 +38,11 @@ class MetadataFetcher(gameDirectory: File, val baseUrl: URL, val forceEmbedded: 
             } catch (e: Exception) {
                 WAILT.LOGGER.warn("Failed to cache downloaded file $fileName:", e)
             }
-
-        }.map { Json.decodeFromString<T>(it) }.getOrElse { downloadError ->
+        }.mapCatching {
+            Json.decodeFromString<T>(it).also { data ->
+                check(data.version == FORMAT_VERSION) { "File $fileName has an unsupported version ${data.version}! (expected $FORMAT_VERSION)" }
+            }
+        }.getOrElse { downloadError ->
             WAILT.LOGGER.warn("Failed to download or parse $fileName, loading cached file")
             WAILT.LOGGER.debug("Download error:", downloadError)
             cacheDirectory.resolve(fileName).runCatching {
@@ -57,7 +60,5 @@ class MetadataFetcher(gameDirectory: File, val baseUrl: URL, val forceEmbedded: 
                 }
             }
         }
-    }.also {
-        check(it.version == FORMAT_VERSION) { "File $fileName has an unsupported version ${it.version}! (expected $FORMAT_VERSION)" }
-    }
+    }.also { check(it.version == FORMAT_VERSION) }
 }
