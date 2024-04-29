@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.sounds.SoundSource
 import net.neoforged.bus.api.SubscribeEvent
-import net.neoforged.fml.common.Mod
+import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.client.event.sound.PlayStreamingSourceEvent
 
 @Serializable
@@ -14,13 +14,13 @@ data class Tracks(override val version: Int, val tracks: Map<String, Map<String,
 
 data class Track(val title: Component, val artist: Component)
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME)
 class ToastDispatcher(private val toastComponent: ToastComponent, metadataFetcher: MetadataFetcher) {
     init {
         WAILT.LOGGER.info("Downloading artist index")
     }
 
-    val tracks = metadataFetcher.fetchFile<Tracks>("tracks.json").tracks.mapValues { (_, artists) ->
+    private val tracks = metadataFetcher.fetchFile<Tracks>("tracks.json").tracks.mapValues { (_, artists) ->
         artists.flatMap { (artist, tracks) ->
             tracks.map { (id, name) ->
                 id to Track(Component.literal(name), Component.literal(artist))

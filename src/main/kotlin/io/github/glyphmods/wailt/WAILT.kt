@@ -2,15 +2,15 @@ package io.github.glyphmods.wailt
 
 import net.minecraft.client.Minecraft
 import net.neoforged.bus.api.SubscribeEvent
-import net.neoforged.fml.ModLoadingContext
+import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.common.Mod
-import net.neoforged.fml.common.Mod.EventBusSubscriber
 import net.neoforged.fml.config.ModConfig
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import thedarkcolour.kotlinforforge.neoforge.forge.FORGE_BUS
-import java.net.URL
+import thedarkcolour.kotlinforforge.neoforge.forge.LOADING_CONTEXT
+import java.net.URI
 
 @Mod(WAILT.ID)
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
@@ -22,7 +22,7 @@ object WAILT {
     val LOGGER: Logger = LogManager.getLogger(ID)
 
     init {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.spec)
+        LOADING_CONTEXT.activeContainer.registerConfig(ModConfig.Type.CLIENT, Config.spec)
     }
 
     @SubscribeEvent
@@ -33,7 +33,7 @@ object WAILT {
                 minecraft.toasts,
                 MetadataFetcher(
                     minecraft.gameDirectory,
-                    URL(Config.metadataUrl.get()),
+                    URI.create(Config.metadataUrl.get()).toURL(),
                     Config.forceEmbeddedMetadata.get()
                 )
             )

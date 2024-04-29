@@ -2,7 +2,7 @@ plugins {
     `java-library`
     id("idea")
     `maven-publish`
-    id("net.neoforged.gradle.userdev") version "7.0.88"
+    id("net.neoforged.gradle.userdev") version "7.0.+"
 
     val kotlinVersion = "1.9.23"
     kotlin("jvm") version kotlinVersion
@@ -20,7 +20,7 @@ base {
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 
 //minecraft.accessTransformers.file rootProject.file("src/main/resources/META-INF/accesstransformer.cfg")
 //minecraft.accessTransformers.entry public net.minecraft.client.Minecraft textureManager # textureManager
@@ -93,7 +93,7 @@ tasks.withType<ProcessResources>().configureEach {
         "mod_authors", "mod_description", "pack_format_number"
     ).associateWith { project.properties[it] }
     inputs.properties(replaceProperties)
-    filesMatching(listOf("META-INF/mods.toml", "pack.mcmeta")) {
+    filesMatching(listOf("META-INF/neoforge.mods.toml", "pack.mcmeta")) {
         expand(replaceProperties + mapOf("project" to project))
     }
 }
@@ -114,8 +114,8 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8" // Use the UTF-8 charset for Java compilation
 }
 
-kotlin {
-
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = "21"
 }
 
 tasks.jar {
