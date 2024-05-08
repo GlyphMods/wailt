@@ -6,7 +6,7 @@ import kotlinx.serialization.json.decodeFromStream
 import java.io.File
 import java.net.URL
 
-const val FORMAT_VERSION = 0
+const val FORMAT_VERSION = 1
 
 interface MetadataFile {
     val version: Int

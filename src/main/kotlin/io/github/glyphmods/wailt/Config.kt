@@ -18,6 +18,9 @@ object Config {
     val toastDuration = builder.comment("How long to show the toast on screen, in seconds")
         .define("toast.duration", 5.0)
 
+    val disableToastColors = builder.comment("Always use white text for the artist name in the toast")
+        .define("toast.disable-color", false)
+
 
     val spec = builder.build()
 }

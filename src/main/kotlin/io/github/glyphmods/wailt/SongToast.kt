@@ -14,7 +14,13 @@ class SongToast(private val artist: Component, private val track: Component) : T
         gui.blitSprite(BACKGROUND_SPRITE, 0, 0, width(), height())
 
         gui.drawString(font, track, 42, 5, 0xFFFFFF)
-        gui.drawString(font, artist, 42, 18, 0xFFA500)
+        gui.drawString(
+            font,
+            if (Config.disableToastColors.get()) Component.literal(artist.string) else artist,
+            42,
+            18,
+            0xFFFFFF
+        )
 
         return if (timeSinceLastVisible < Config.toastDuration.get() * 1000 * component.notificationDisplayTimeMultiplier) {
             Toast.Visibility.SHOW
