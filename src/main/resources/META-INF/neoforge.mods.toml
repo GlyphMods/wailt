@@ -9,6 +9,10 @@ displayName="${mod_name}"
 credits="Thanks to the Kotlin For Forge team and Neoforge team!"
 authors="${mod_authors}"
 description='''${mod_description}'''
+
+[[accessTransformers]]
+file = "META-INF/accesstransformer.cfg"
+
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
