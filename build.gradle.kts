@@ -80,6 +80,12 @@ dependencies {
     implementation("thedarkcolour:kotlinforforge-neoforge:${property("loader_version") as String}")
 }
 
+minecraft {
+    accessTransformers {
+        file("src/main/resources/META-INF/accesstransformer.cfg")
+    }
+}
+
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.

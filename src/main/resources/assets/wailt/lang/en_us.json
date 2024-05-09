@@ -1,3 +1,5 @@
 {
-    "gui.wailt.toast.unknown": "Unknown"
+  "gui.wailt.toast.unknown": "Unknown",
+  "gui.wailt.toast.no-song": "Nothing is playing",
+  "key.wailt.show-toast": "[WAILT] Show the music toast"
 }
