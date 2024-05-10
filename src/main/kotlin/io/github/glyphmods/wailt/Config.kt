@@ -9,7 +9,7 @@ object Config {
         builder.comment("The URL to download track metadata from. This should generally be left at the default.")
             .define(
                 "metadata.url",
-                "https://raw.githubusercontent.com/GlyphMods/wailt/1.20.2-neoforge/src/main/resources/songs/"
+                "https://raw.githubusercontent.com/GlyphMods/wailt/1.20.6/src/main/resources/tracks.json"
             )
     val forceEmbeddedMetadata =
         builder.comment("Force the mod to use track metadata embedded in the JAR. Only useful for development.")
