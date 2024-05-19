@@ -1,5 +1,7 @@
 # What Am I Listening To?
 
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/wailt?logo=modrinth)
+
 A small utility mod that displays a toast on-screen when the game music changes, with support for music
 from other mods as well.
 
