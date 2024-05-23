@@ -85,6 +85,27 @@
                 "game/comforting_memories": "Comforting Memories",
                 "game/floating_dream": "Floating Dream"
             }
+        },
+        "the_bumblezone": {
+            "Rat Faced Boy": {
+                "honey_bee_rat_faced_boy": "Honey Bee"
+            },
+            "LudoCrypt": {
+                "la_bee_da_loca": "La Bee-da Loca",
+                "bee_laxing_with_the_hom_bees": "Bee-laxing with the Hom-bees",
+                "bee_ware_of_the_temple_stereo": "Bee-ware of the Temple"
+            },
+            "RenRen": {
+                "knowing_renren_stereo": "Knowing",
+                "radiance_renren_stereo": "Radiance",
+                "life_renren_stereo": "Life"
+            },
+            "Punpudle": {
+                "a_last_first_last_stereo": "A Last First Last"
+            },
+            "Nikolai Rimsky-Korsakov": {
+                "flight_of_the_bumblebee_rimsky_korsakov": "Flight of the Bumblebee"
+            }
         }
     }
 }
