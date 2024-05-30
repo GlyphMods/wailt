@@ -5,10 +5,6 @@
 A small utility mod that displays a toast on-screen when the game music changes, with support for music
 from other mods as well.
 
-Supported mods:
-
-- None yet, help us out!
-
 ## Contribute track information
 
 If WAILT doesn't support music added by a mod, it's easy to add it yourself if you have some familiarity with JSON!
