@@ -106,6 +106,17 @@
             "Nikolai Rimsky-Korsakov": {
                 "flight_of_the_bumblebee_rimsky_korsakov": "Flight of the Bumblebee"
             }
+        },
+        "estrogen": {
+            "erora": {
+                "amphitrite": "Amphitrite",
+                "aurum_berry": "Aurum Berry",
+                "g03c": "G03C",
+                "inferred_dreams": "Inferred Dreams",
+                "inner_self-realization": "Inner Self-Realization",
+                "sleeping": "Sleeping",
+                "trust_yourself": "Trust Yourself"
+            }
         }
     }
 }
