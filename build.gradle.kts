@@ -2,7 +2,7 @@ plugins {
     `java-library`
     id("idea")
     `maven-publish`
-    id("net.neoforged.gradle.userdev") version "7.0.88"
+    id("net.neoforged.gradle.userdev") version "7.0.+"
 
     val kotlinVersion = "1.9.23"
     kotlin("jvm") version kotlinVersion
