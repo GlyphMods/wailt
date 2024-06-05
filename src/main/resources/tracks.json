@@ -1,31 +1,31 @@
 {
-  "version": 1,
-  "artists": {
-    "Lena Raine": {
-      "component": [
-        {
-          "text": "Le",
-          "color": "#5BCEFA"
-        },
-        {
-          "text": "na",
-          "color": "#F5A9B8"
-        },
-        {
-          "text": " Ra",
-          "color": "#FFFFFF"
-        },
-        {
-          "text": "in",
-          "color": "#F5A9B8"
-        },
-        {
-          "text": "e",
-          "color": "#5BCEFA"
+    "version": 1,
+    "artists": {
+        "Lena Raine": {
+            "component": [
+                {
+                    "text": "Le",
+                    "color": "#5BCEFA"
+                },
+                {
+                    "text": "na",
+                    "color": "#F5A9B8"
+                },
+                {
+                    "text": " Ra",
+                    "color": "#FFFFFF"
+                },
+                {
+                    "text": "in",
+                    "color": "#F5A9B8"
+                },
+                {
+                    "text": "e",
+                    "color": "#5BCEFA"
+                }
+            ]
         }
-      ]
-    }
-  },
+    },
     "tracks": {
         "minecraft": {
             "C418": {
