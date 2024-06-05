@@ -1,10 +1,12 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     `java-library`
     id("idea")
     `maven-publish`
     id("net.neoforged.gradle.userdev") version "7.0.+"
 
-    val kotlinVersion = "1.9.23"
+    val kotlinVersion = "2.0.0"
     kotlin("jvm") version kotlinVersion
     // OPTIONAL Kotlin Serialization plugin
     kotlin("plugin.serialization") version kotlinVersion
@@ -119,8 +121,10 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8" // Use the UTF-8 charset for Java compilation
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = "21"
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
+    }
 }
 
 tasks.jar {
