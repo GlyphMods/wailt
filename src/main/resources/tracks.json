@@ -74,18 +74,27 @@
                 "game/nether/soulsand_valley/so_below": "So Below",
                 "game/swamp/aerie": "Aerie",
                 "game/swamp/firebugs": "Firebugs",
-                "game/swamp/labyrinthine": "Labyrinthine"
+                "game/swamp/labyrinthine": "Labyrinthine",
+                "game/deeper": "Deeper",
+                "game/eld_unknown": "Eld Unknown",
+                "game/endless": "Endless"
             },
             "Aaron Cherof": {
                 "game/a_familiar_room": "A Familiar Room",
                 "game/bromeliad": "Bromeliad",
                 "game/crescent_dunes": "Crescent Dunes",
-                "game/echo_in_the_wind": "Echo in the Wind"
+                "game/echo_in_the_wind": "Echo in the Wind",
+                "game/featherfall": "Featherfall",
+                "game/watcher": "Watcher",
+                "game/puzzlebox": "Puzzlebox"
             },
             "Kumi Tanioka": {
                 "game/an_ordinary_day": "An Ordinary Day",
                 "game/comforting_memories": "Comforting Memories",
-                "game/floating_dream": "Floating Dream"
+                "game/floating_dream": "Floating Dream",
+                "game/komorebi": "Komorebi",
+                "game/pokopoko": "Pokopoko",
+                "game/yakusoku": "Yakusoku"
             }
         },
         "the_bumblezone": {
