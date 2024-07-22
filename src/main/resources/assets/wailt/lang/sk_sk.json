@@ -1,5 +1,18 @@
 {
   "gui.wailt.toast.unknown": "Neznáma hudba",
   "gui.wailt.toast.no-song": "Žiadna hudba nehrá",
-  "key.wailt.show-toast": "[WAILT] Zobraziť hudbu"
+  "key.wailt.show-toast": "[WAILT] Zobraziť informácie o hudbe",
+  "wailt.configuration.force-embedded": "Vynútiť použitie vstávaného listu hudby",
+  "wailt.configuration.force-embedded.tooltip": "Vynutíť použitie vstávaného listu hudby, užitočné len pre vývoj",
+  "wailt.configuration.metadata": "Nastavenia hudobného listu",
+  "wailt.configuration.duration": "Dĺžka zobrazenia informácií o hudbe",
+  "wailt.configuration.duration.tooltip": "dĺžka zobrazenia informácií na obrazovke",
+  "wailt.configuration.automatically-show": "Automaticky zobraziť informácie o hudbe",
+  "wailt.configuration.url": "Zdrojová adresa pre hodobný list",
+  "wailt.configuration.url.tooltip": "URL na stiahnutie hudobných metadát, toto nastavenie by sa väčšinou malo zanechať nezmenené",
+  "wailt.configuration.disable-color": "Vypnúť farbu",
+  "wailt.configuration.disable-color.tooltip": "Vždy použiť biely text pre autora",
+  "wailt.configuration.section.wailt.client.toml.title": "Klient",
+  "wailt.configuration.section.wailt.client.toml": "Klient",
+  "wailt.configuration.toast": "Zobrazenie informácií"
 }
