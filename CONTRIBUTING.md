@@ -11,7 +11,7 @@ file on disk and will use a copy inside the JAR as a last resort.)
 
 To contribute track information for a mod, open a pull request with the relevant data added to `tracks.json`, as
 described below. If you need help, ping Ginger (`gingershaped`) in
-the [Neoforge discord](https://discord.neoforged.net), or send them a DM.
+the [Neoforge discord](https://discord.neoforged.net), or send her a DM.
 
 ## Structure of `tracks.json`
 
