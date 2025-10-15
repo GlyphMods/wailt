@@ -28,6 +28,6 @@ class SongToast(private val artist: Component, private val track: Component) : T
     }
 
     companion object {
-        val SPRITE = ResourceLocation.parse("wailt:music")
+        val SPRITE: ResourceLocation = ResourceLocation.parse("wailt:music")
     }
 }

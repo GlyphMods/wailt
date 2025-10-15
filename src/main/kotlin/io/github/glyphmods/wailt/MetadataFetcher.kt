@@ -1,6 +1,8 @@
 package io.github.glyphmods.wailt
 
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.net.URI
 
@@ -24,14 +26,16 @@ class MetadataFetcher(gameDirectory: File, val baseURL: URI, val forceEmbedded: 
             gson.fromJson(this, type)
         }
 
-    fun <T : MetadataFile> fetchFile(fileName: String, type: Class<T>): T =
+    suspend fun <T : MetadataFile> fetchFile(fileName: String, type: Class<T>): T =
         if (forceEmbedded) {
             WAILT.LOGGER.warn("Using embedded copy of $fileName, as requested")
             loadFromResource(fileName, type).getOrElse { throw RuntimeException("Could not load metadata file $fileName", it) }
         } else {
             runCatching {
-                baseURL.resolve(fileName).toURL().openStream().reader().use {
-                    it.readText()
+                withContext(Dispatchers.IO) {
+                    baseURL.resolve(fileName).toURL().openStream().reader().use {
+                        it.readText()
+                    }
                 }
             }.onSuccess { data ->
                 WAILT.LOGGER.debug("Caching downloaded file $fileName")
@@ -62,5 +66,5 @@ class MetadataFetcher(gameDirectory: File, val baseURL: URI, val forceEmbedded: 
             }
         }.also { check(it.version == FORMAT_VERSION) }
 
-    inline fun <reified T: MetadataFile> fetchFile(fileName: String) = fetchFile(fileName, T::class.java)
+    suspend inline fun <reified T : MetadataFile> fetchFile(fileName: String) = fetchFile(fileName, T::class.java)
 }

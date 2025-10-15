@@ -21,6 +21,6 @@ class InfoToast(private val message: Component) : Toast {
     }
 
     companion object {
-        val SPRITE = ResourceLocation.parse("wailt:blank")
+        val SPRITE: ResourceLocation = ResourceLocation.parse("wailt:blank")
     }
 }

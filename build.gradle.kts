@@ -6,7 +6,7 @@ plugins {
     `maven-publish`
     id("net.neoforged.gradle.userdev") version "7.0.+"
 
-    val kotlinVersion = "2.0.0"
+    val kotlinVersion = "2.2.0"
     kotlin("jvm") version kotlinVersion
     // OPTIONAL Kotlin Serialization plugin
     kotlin("plugin.serialization") version kotlinVersion
@@ -49,7 +49,7 @@ runs {
     }
 
     create("data") {
-        programArguments.addAll(
+        arguments.addAll(
             "--mod",
             mod_id,
             "--all",

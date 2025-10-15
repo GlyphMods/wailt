@@ -16,13 +16,12 @@ import net.neoforged.neoforge.client.settings.KeyModifier
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import org.lwjgl.glfw.GLFW
-import thedarkcolour.kotlinforforge.neoforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.neoforge.forge.LOADING_CONTEXT
 import java.net.URI
 
 
 @Mod(WAILT.ID)
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 object WAILT {
     const val ID = "wailt"
     val LOGGER: Logger = LogManager.getLogger(ID)
@@ -58,7 +57,6 @@ object WAILT {
                     Config.forceEmbeddedMetadata.get()
                 )
             )
-            FORGE_BUS.register(dispatcher)
         }
     }
 
