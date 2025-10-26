@@ -1,0 +1,98 @@
+{
+  "artists": {
+    "Lena Raine": {
+      "fancy_name": [
+        {
+          "text": "Le",
+          "color": "#5BCEFA"
+        },
+        {
+          "text": "na",
+          "color": "#F5A9B8"
+        },
+        {
+          "text": " Ra",
+          "color": "#FFFFFF"
+        },
+        {
+          "text": "in",
+          "color": "#F5A9B8"
+        },
+        {
+          "text": "e",
+          "color": "#5BCEFA"
+        }
+      ]
+    }
+  },
+  "tracks": {
+    "C418": {
+      "menu/beginning_2": "Beginning 2",
+      "menu/floating_trees": "Floating Trees",
+      "menu/moog_city_2": "Moog City 2",
+      "menu/mutation": "Mutation",
+      "game/clark": "Clark",
+      "game/danny": "Danny",
+      "game/dry_hands": "Dry Hands",
+      "game/haggstrom": "Haggstrom",
+      "game/key": "Key",
+      "game/living_mice": "Living Mice",
+      "game/mice_on_venus": "Mice On Venus",
+      "game/minecraft": "Minecraft",
+      "game/oxygene": "Oxygène",
+      "game/subwoofer_lullaby": "Subwoofer Lullaby",
+      "game/sweden": "Sweden",
+      "game/wet_hands": "Wet Hands",
+      "game/creative/aria_math": "Aria Math",
+      "game/creative/biome_fest": "Biome Fest",
+      "game/creative/blind_spots": "Blind Spots",
+      "game/creative/dreiton": "Dreiton",
+      "game/creative/haunt_muskie": "Haunt Muskie",
+      "game/creative/taswell": "Taswell",
+      "game/end/alpha": "Alpha",
+      "game/end/boss": "Boss",
+      "game/end/the_end": "The End.",
+      "game/nether/ballad_of_the_cats": "Ballad of the Cats",
+      "game/nether/concrete_halls": "Concrete Halls",
+      "game/nether/dead_voxel": "Dead Voxel",
+      "game/nether/warmth": "Warmth",
+      "game/water/axolotl": "Axolotl",
+      "game/water/dragon_fish": "Dragon Fish",
+      "game/water/shuniji": "Shuniji"
+    },
+    "Lena Raine": {
+      "game/ancestry": "Ancestry",
+      "game/infinite_amethyst": "Infinite Amethyst",
+      "game/left_to_bloom": "Left to Bloom",
+      "game/one_more_day": "One More Day",
+      "game/stand_tall": "Stand Tall",
+      "game/wending": "Wending",
+      "game/nether/crimson_forest/chrysopoeia": "Chrysopoeia",
+      "game/nether/nether_wastes/rubedo": "Rubedo",
+      "game/nether/soulsand_valley/so_below": "So Below",
+      "game/swamp/aerie": "Aerie",
+      "game/swamp/firebugs": "Firebugs",
+      "game/swamp/labyrinthine": "Labyrinthine",
+      "game/deeper": "Deeper",
+      "game/eld_unknown": "Eld Unknown",
+      "game/endless": "Endless"
+    },
+    "Aaron Cherof": {
+      "game/a_familiar_room": "A Familiar Room",
+      "game/bromeliad": "Bromeliad",
+      "game/crescent_dunes": "Crescent Dunes",
+      "game/echo_in_the_wind": "Echo in the Wind",
+      "game/featherfall": "Featherfall",
+      "game/watcher": "Watcher",
+      "game/puzzlebox": "Puzzlebox"
+    },
+    "Kumi Tanioka": {
+      "game/an_ordinary_day": "An Ordinary Day",
+      "game/comforting_memories": "Comforting Memories",
+      "game/floating_dream": "Floating Dream",
+      "game/komorebi": "Komorebi",
+      "game/pokopoko": "Pokopoko",
+      "game/yakusoku": "Yakusoku"
+    }
+  }
+}

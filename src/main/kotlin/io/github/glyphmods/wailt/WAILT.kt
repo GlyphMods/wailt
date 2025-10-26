@@ -17,7 +17,6 @@ import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import org.lwjgl.glfw.GLFW
 import thedarkcolour.kotlinforforge.neoforge.forge.LOADING_CONTEXT
-import java.net.URI
 
 
 @Mod(WAILT.ID)
@@ -25,6 +24,7 @@ import java.net.URI
 object WAILT {
     const val ID = "wailt"
     val LOGGER: Logger = LogManager.getLogger(ID)
+
 
     private lateinit var dispatcher: ToastDispatcher
     val SHOW_TOAST_KEYBIND by lazy {
@@ -49,19 +49,12 @@ object WAILT {
     private fun onClientSetup(event: FMLClientSetupEvent) {
         event.enqueueWork {
             val minecraft = Minecraft.getInstance()
-            dispatcher = ToastDispatcher(
-                minecraft.toasts,
-                MetadataFetcher(
-                    minecraft.gameDirectory,
-                    URI.create(Config.metadataUrl.get()),
-                    Config.forceEmbeddedMetadata.get()
-                )
-            )
+            dispatcher = ToastDispatcher(minecraft.toasts)
         }
     }
 
     @SubscribeEvent
-    private fun onRegisterKeyMappings(event: RegisterKeyMappingsEvent) {
+    private fun registerKeyMappings(event: RegisterKeyMappingsEvent) {
         event.register(SHOW_TOAST_KEYBIND)
     }
 }
