@@ -6,8 +6,11 @@
 > open PRs to modify it. The below instructions are applicable to versions *.3.0 or later.
 
 WAILT is designed to work with tracks from other mods as well, and adding support is easy to do. To add your mod's
-track information, simply include a file named `music.json` in the root of your mod's resource pack. WAILT embeds
+track information, simply include a file named `music.json` in the root of your mod's **resource pack**. WAILT embeds
 a track manifest for Minecraft in its resources, which you can reference as an example.
+
+> [!WARNING]
+> The `music.json` file must be in the root of your mod's resource pack (`assets/`), _not_ its datapack (`data/`)!
 
 ## Structure of `music.json`
 
