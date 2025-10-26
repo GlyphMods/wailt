@@ -8,4 +8,4 @@ from other mods as well.
 ## Contribute track information
 
 If WAILT doesn't support music added by a mod, it's easy to add it yourself if you have some familiarity with JSON!
-Documentation on how to do that can be found [here](CONTRIBUTING.md).
+Documentation on how to do that can be found [here](DOCS.md).
