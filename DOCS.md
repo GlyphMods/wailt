@@ -34,10 +34,8 @@ Artists are not required to have entries in this object.
 ```json5
 {
   "tracks": {
-    "modid": {
-      "Artist Name": {
-        "track_location": "Track Name"
-      }
+    "Artist Name": {
+      "track_location": "Track Name"
     }
   }
 }
@@ -45,7 +43,6 @@ Artists are not required to have entries in this object.
 
 where:
 
-- `"modid"`: the mod ID of the mod which adds the music.
 - `"Artist Name"`: the _human-readable_ name of the artist, which will also be used to look the artist up in `artists`
   and shown in toasts if the artist does not have a `fancy_name`.
 - `"track_location"`: the path to the audio file relative to `/assets/<modid>/sounds/music`. Files which are not in the
@@ -62,10 +59,8 @@ where:
     }
   },
   "tracks": {
-    "examplemod": {
-      "Artist Name": {
-        "game/epic_track": "Epic track"
-      }
+    "Artist Name": {
+      "game/epic_track": "Epic track"
     }
   }
 }
